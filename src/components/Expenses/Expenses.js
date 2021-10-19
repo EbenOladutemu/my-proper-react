@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import ExpenseItems from "../ExpenseItem/ExpenseItems";
 
-function Expenses() {
+const Expenses = () => {
   const expense = [
     {
       date: new Date(2021, 1, 1),

@@ -2,7 +2,7 @@ import './ExpenseItems.css';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 import Card from '../Card/Card';
 
-function ExpenseItems(props) {
+const ExpenseItems = (props) => {
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date} />
@@ -10,7 +10,12 @@ function ExpenseItems(props) {
         <h2>{props.title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
-      <button style={{ marginLeft: 5 + 'px' }}>Change Title</button>
+      <button 
+        style={{ marginLeft: 5 + 'px' }}
+        onClick={ (e) =>  { console.log('Dudes', e.target); } }
+        >
+          Change Title
+      </button>
     </Card>
   );
 }

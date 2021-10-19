@@ -1,16 +1,18 @@
-import './ExpenseItems.css'
+import './ExpenseItems.css';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
+import Card from '../Card/Card';
 
 function ExpenseItems(props) {
   return (
-    <div className="expense-item">
-      <ExpenseDate date={ props.date } />
-      <div className="expense-item__description">
-        <h2>{ props.title }</h2>
-        <div className="expense-item__price">${ props.amount }</div>
+    <Card className='expense-item'>
+      <ExpenseDate date={props.date} />
+      <div className='expense-item__description'>
+        <h2>{props.title}</h2>
+        <div className='expense-item__price'>${props.amount}</div>
       </div>
-    </div>
-  )
+      <button style={{ marginLeft: 5 + 'px' }}>Change Title</button>
+    </Card>
+  );
 }
 
 export default ExpenseItems;

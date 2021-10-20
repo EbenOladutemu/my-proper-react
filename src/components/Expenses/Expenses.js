@@ -1,5 +1,6 @@
 import Card from "../Card/Card";
 import ExpenseItems from "../ExpenseItem/ExpenseItems";
+import NewExpense from "../NewExpense/NewExpense";
 
 const Expenses = () => {
   const expense = [
@@ -27,6 +28,7 @@ const Expenses = () => {
 
   return (
     <Card className="App">
+      <NewExpense/>
       <ExpenseItems
        date={ expense[0].date }
        title={ expense[0].title }

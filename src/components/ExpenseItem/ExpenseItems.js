@@ -1,23 +1,26 @@
+import React, { useState } from 'react';
 import './ExpenseItems.css';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 import Card from '../Card/Card';
 
 const ExpenseItems = (props) => {
+  const [title, setTitle] = useState(props.title);
+  const clickHandler = () => {
+    setTitle('New');
+    console.log('Dudes', title);
+  };
   return (
     <Card className='expense-item'>
       <ExpenseDate date={props.date} />
       <div className='expense-item__description'>
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className='expense-item__price'>${props.amount}</div>
       </div>
-      <button 
-        style={{ marginLeft: 5 + 'px' }}
-        onClick={ (e) =>  { console.log('Dudes', e.target); } }
-        >
-          Change Title
+      <button style={{ marginLeft: 5 + 'px' }} onClick={clickHandler}>
+        Change Title
       </button>
     </Card>
   );
-}
+};
 
 export default ExpenseItems;

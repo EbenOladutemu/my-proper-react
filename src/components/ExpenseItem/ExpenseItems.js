@@ -4,6 +4,11 @@ import ExpenseDate from '../ExpenseDate/ExpenseDate';
 import Card from '../Card/Card';
 
 const ExpenseItems = (props) => {
+  /* 
+    useState:
+      - should be called only inside component functions and not nested functions.
+      - Returns 2 parameters [first-current state, second-function/method to update current state]
+  */
   const [title, setTitle] = useState(props.title);
   const clickHandler = () => {
     setTitle('New');

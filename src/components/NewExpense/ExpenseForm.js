@@ -7,11 +7,11 @@ const ExpenseForm = () => {
   const [enteredDate, setEnteredDate] = useState('');
 
   // Alternate approach for setting state
-  const [userInput, setUserInput] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: ''
-  })
+  // const [userInput, setUserInput] = useState({
+  //   enteredTitle: '',
+  //   enteredAmount: '',
+  //   enteredDate: ''
+  // })
   const onTitleChange = (event) => {
     console.log(event.target.value)
     setEnteredTitle(event.target.value);
@@ -32,20 +32,32 @@ const ExpenseForm = () => {
     console.log(event.target.value)
     setEnteredDate(event.target.value);
   }
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: enteredDate
+    }
+    console.log(expenseData);
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
+  }
   return(
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" onChange={onTitleChange} />
+          <input type="text" value={enteredTitle} onChange={onTitleChange} />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
-          <input type="number" min="0.01" step="0.01" onChange={onAmountChange} />
+          <input type="number" value={enteredAmount} min="0.01" step="0.01" onChange={onAmountChange} />
         </div>
         <div className="new-expense__control">
           <label>Date</label>
-          <input type="date" min="2019-01-01" max="2022-12-31" onChange={onDateChange} />
+          <input type="date" value={enteredDate} min="2019-01-01" max="2022-12-31" onChange={onDateChange} />
         </div>
       </div>
       <div className="new-expense__actions">

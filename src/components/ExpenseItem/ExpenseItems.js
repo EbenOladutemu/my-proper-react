@@ -11,7 +11,7 @@ const ExpenseItems = (props) => {
   */
   const [title, setTitle] = useState(props.title);
   const clickHandler = () => {
-    setTitle('New');
+    setTitle('New'); 
     console.log('Dudes', title);
   };
   return (
@@ -27,5 +27,6 @@ const ExpenseItems = (props) => {
     </Card>
   );
 };
+
 
 export default ExpenseItems;
